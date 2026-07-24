@@ -3,15 +3,19 @@ package paquetes.Comportamiento;
 //Clase cliente que construye la cadena de manejadores
 public class ChainOfResponsability {
     public static void main(String[] args) {
+        //Se crean todos los manejadores
         var lider = new Lider();
         var gerente = new Gerente();
         var director = new Director();
 
+        //Se prepara toda la cadena de manejadores
         lider.setSiguiente(gerente);
         lider.setSiguiente(director);
 
+        //Lista de compras para realizar prueba
         double[] compras = { 100, 1000, 10000, 100000};
 
+        //Foreach para realizar una prueba de cada caso
         for(var compra : compras){
             lider.ProcesarSolicitud(compra);
         }
